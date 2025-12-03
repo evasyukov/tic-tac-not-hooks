@@ -1,12 +1,13 @@
-import { useSelector } from "react-redux"
+import { connect } from "react-redux"
 
 import "./Information.css"
 
-export function Information() {
-  const { currentPlayer, isGameEnded, isDraw, winCounter } = useSelector(
-    (state) => state.game
-  )
-
+export function Information({
+  currentPlayer,
+  isGameEnded,
+  isDraw,
+  winCounter,
+}) {
   return (
     <div className="information">
       <div className="information_win-counter">
@@ -40,3 +41,13 @@ export function Information() {
     </div>
   )
 }
+
+// получаем данные из стора
+const mapStateToProps = (state) => ({
+  currentPlayer: state.game.currentPlayer,
+  isGameEnded: state.game.isGameEnded,
+  isDraw: state.game.isDraw,
+  winCounter: state.game.winCounter,
+})
+
+export default connect(mapStateToProps)(Information)

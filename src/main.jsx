@@ -1,4 +1,3 @@
-import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
 
@@ -9,8 +8,6 @@ import Game from "./components/Game/Game"
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <StrictMode>
-      <Game />
-    </StrictMode>
+    <Game />
   </Provider>
 )
