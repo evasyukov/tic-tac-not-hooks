@@ -1,22 +1,22 @@
 import { connect } from "react-redux"
 import { Component } from "react"
 
-import "./Information.css"
+// import "./Information.css"
 
 class Information extends Component {
   render() {
     const { currentPlayer, isGameEnded, isDraw, winCounter } = this.props
 
     return (
-      <div className="information">
-        <div className="information_win-counter">
-          <p>
+      <div className="mb-[60px]">
+        <div className="text-[22px] mb-[20px]">
+          <p className="m-0">
             Счет: <span className="x">{winCounter[0]} </span> :{" "}
             <span className="o">{winCounter[1]} </span>
           </p>
         </div>
         {!isGameEnded && (
-          <div className="information_game-status">
+          <div className="text-[32px]">
             Ходит:{" "}
             <span className={`${currentPlayer.toLowerCase()}`}>
               {currentPlayer}
@@ -25,7 +25,7 @@ class Information extends Component {
         )}
 
         {isGameEnded && (
-          <div className="information_game-status">
+          <div className="text-[32px]">
             Игра окончена!{" "}
             {!isDraw ? (
               <p className={`${currentPlayer.toLowerCase()}`}>
